@@ -8,6 +8,7 @@ module Bcx
     autoload :Todo, 'bcx/resources/todo'
     autoload :Todolist, 'bcx/resources/todolist'
     autoload :Project, 'bcx/resources/project'
+    autoload :Access, 'bcx/resources/access'
   end
 
   autoload :Client, 'bcx/client'
@@ -23,4 +24,4 @@ module Bcx
 end
 
 require 'bcx/response_error'
-Rapidash.response_exception_class = Bcx::ResponseError
+# Rapidash.response_exception_class = Bcx::ResponseError
