@@ -1,7 +1,6 @@
 module Bcx
   class Client < Rapidash::Client
     extension :json
-    encode_post_data_with :json
 
     raise_errors
 
@@ -9,7 +8,7 @@ module Bcx
     resource :todolists, class_name: 'Bcx::Resources::Todolist'
 
     def initialize(auth_method, options = {})
-      @account = Bcx.configuration.account
+      @account = options[:account] || Bcx.configuration.account
       @api_version = Bcx.configuration.api_version
 
       self.class.site("https://basecamp.com/#{@account}/api/#{@api_version}/")
@@ -17,6 +16,7 @@ module Bcx
 
       options[:uid] ||= options[:client_id]
       options[:secret] ||= options[:client_secret]
+      options[:site] ||= self.class.site
 
       super(options)
     end

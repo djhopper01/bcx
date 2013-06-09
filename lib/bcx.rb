@@ -8,10 +8,12 @@ module Bcx
     autoload :Todo, 'bcx/resources/todo'
     autoload :Todolist, 'bcx/resources/todolist'
     autoload :Project, 'bcx/resources/project'
+    autoload :Authorization, 'bcx/resources/authorization'
     autoload :Access, 'bcx/resources/access'
   end
 
   autoload :Client, 'bcx/client'
+  autoload :Launchpad, 'bcx/launchpad'
 
   class << self
     attr_accessor :configuration
