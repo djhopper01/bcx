@@ -6,6 +6,7 @@ module Bcx
 
     resource :projects, class_name: 'Bcx::Resources::Project'
     resource :todolists, class_name: 'Bcx::Resources::Todolist'
+    resource :people, class_name: 'Bcx::Resources::Person'
 
     def initialize(auth_method, options = {})
       @account = options[:account] || Bcx.configuration.account

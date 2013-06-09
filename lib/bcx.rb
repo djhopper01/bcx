@@ -10,6 +10,7 @@ module Bcx
     autoload :Project, 'bcx/resources/project'
     autoload :Authorization, 'bcx/resources/authorization'
     autoload :Access, 'bcx/resources/access'
+    autoload :Person, 'bcx/resources/person'
   end
 
   autoload :Client, 'bcx/client'
