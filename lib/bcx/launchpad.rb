@@ -14,9 +14,11 @@ module Bcx
     def initialize(auth_method, options = {})
       self.class.method(auth_method)
 
+      self.class.site("https://launchpad.37signals.com/")
+
       options[:uid] ||= options[:client_id]
       options[:secret] ||= options[:client_secret]
-      options[:site] ||= "https://launchpad.37signals.com/"
+      options[:site] ||= self.class.site
 
       super(options)
     end
