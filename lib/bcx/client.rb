@@ -2,6 +2,8 @@ module Bcx
   class Client < Rapidash::Client
     extension :json
 
+    method :oauth
+
     raise_errors
 
     resource :projects, class_name: 'Bcx::Resources::Project'
@@ -12,12 +14,9 @@ module Bcx
       @account = options[:account] || Bcx.configuration.account
       @api_version = Bcx.configuration.api_version
 
-      self.class.site("https://basecamp.com/#{@account}/api/#{@api_version}/")
-      self.class.method(auth_method)
-
       options[:uid] ||= options[:client_id]
       options[:secret] ||= options[:client_secret]
-      options[:site] ||= self.class.site
+      options[:site] ||= "https://basecamp.com/#{@account}/api/#{@api_version}/"
 
       super(options)
     end
